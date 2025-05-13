@@ -1,0 +1,14 @@
+[
+  {
+    "id": 1,
+    "title": "How to Build a Blog",
+    "date": "2025-05-13",
+    "content": "This article explains how to build a blog from scratch using HTML, CSS, and JavaScript..."
+  },
+  {
+    "id": 2,
+    "title": "Learning HTML & CSS",
+    "date": "2025-05-12",
+    "content": "HTML and CSS are the backbone of web development. This post introduces basic concepts..."
+  }
+]

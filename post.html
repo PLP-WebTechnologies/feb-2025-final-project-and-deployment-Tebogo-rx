@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Loading...</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="stylesheet" href="css/styles.css" />
+
+</head>
+<body>
+  <header>
+    <div class="navbar">
+      <div class="logo">NothingBlog</div>
+      <nav>
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="blog.html">Blog</a>
+      </nav>
+      <i id="logo-toggle" class="fas fa-moon logo-icon"></i>
+    </div> 
+  </header>
+
+  <main class="post">
+  <article>
+    <h1>What is Responsive Design?</h1>
+    <p><small>Posted on May 5, 2025 by Alex</small></p>
+
+    <p>Responsive design ensures your website looks good on phones, tablets, and desktops. It's achieved through flexible layouts, media queries, and adaptive elements.</p>
+
+    <h2>Why It Matters</h2>
+    <p>More than half of web traffic comes from mobile devices. If your site isn't responsive, you're losing visitors.</p>
+
+    <h2>How to Get Started</h2>
+    <ul>
+      <li>Use percentage widths instead of fixed pixels.</li>
+      <li>Apply media queries to adjust styles by screen size.</li>
+      <li>Test your site on multiple devices or with browser dev tools.</li>
+    </ul>
+
+    <p>Check out the <a href="blog.html">Blog</a> page for more posts.</p>
+  </article>
+</main>
+
+
+  <script src="js/main.js"></script>
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    const postId = params.get('id');
+
+    fetch('data/posts.json')
+      .then(res => res.json())
+      .then(posts => {
+        const post = posts.find(p => p.id == postId);
+        if (post) {
+          document.title = post.title;
+          document.getElementById('post-container').innerHTML = `
+            <h2>${post.title}</h2>
+            <p><em>${post.date}</em></p>
+            <p>${post.content}</p>
+          `;
+        } else {
+          document.getElementById('post-container').innerHTML = "<p>Post not found.</p>";
+        }
+      });
+  </script>
+
+  <footer>
+  © 2025 NothingBlog. All rights reserved.
+  </footer>
+</body>
+</html>
